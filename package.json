@@ -57,6 +57,10 @@
       "types": "./dist/deployment/openldap/index.d.ts",
       "default": "./dist/deployment/openldap/index.js"
     },
+    "./kafka": {
+      "types": "./dist/deployment/kafka/index.d.ts",
+      "default": "./dist/deployment/kafka/index.js"
+    },
     "./pqc": {
       "types": "./dist/deployment/pqc/index.d.ts",
       "default": "./dist/deployment/pqc/index.js"
@@ -77,7 +81,7 @@
     "tsconfig.base.json"
   ],
   "scripts": {
-    "build": "yarn clean && tsc -p tsconfig.build.json && cp -r src/deployment/rhdh/config dist/deployment/rhdh/ && cp -r src/deployment/keycloak/config dist/deployment/keycloak/ && cp -r src/deployment/openldap/config dist/deployment/openldap/ && cp -r src/deployment/pqc/config dist/deployment/pqc/ && cp src/deployment/orchestrator/install-orchestrator.sh dist/deployment/orchestrator/ && chmod +x dist/secrets/cli.js",
+    "build": "yarn clean && tsc -p tsconfig.build.json && cp -r src/deployment/rhdh/config dist/deployment/rhdh/ && cp -r src/deployment/keycloak/config dist/deployment/keycloak/ && cp -r src/deployment/openldap/config dist/deployment/openldap/ && cp -r src/deployment/pqc/config dist/deployment/pqc/ && cp src/deployment/orchestrator/install-orchestrator.sh dist/deployment/orchestrator/ && cp src/deployment/kafka/image/openssl-pq.cnf dist/deployment/kafka/ && chmod +x dist/secrets/cli.js",
     "prepare": "husky",
     "check": "yarn typecheck && yarn lint:check && yarn prettier:check",
     "clean": "rm -rf dist",
